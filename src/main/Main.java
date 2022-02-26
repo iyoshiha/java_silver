@@ -1,14 +1,12 @@
 package main;
 
-import static ex1.StaticSample.*;
-import static main_sub.Print.*;
+import main.main_sub.sub.SubP;
 
 public class Main {
 
 	public static void main(String[] args) {
 		
-		print();
-		staticMethod();
+		SubP.subp();
 	}
 
 }
