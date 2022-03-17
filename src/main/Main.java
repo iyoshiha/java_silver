@@ -3,15 +3,39 @@ package main;
 public class Main {
 
 	public static void main(String[] args) {
-
-		String[] a  = {"abc", "xyz"};
-		String[][] ary = {{"abc", "klm"},null, {"def"}} ;
-				
 		
-	for (String[] b: ary)
-	{
-		System.out.println(b.length);
+		SuperC c = new SuperC();
+//		System.out.println(c.methodInt());
 	}
+}
+class Parent {
+	
+	Parent methodA() {
+		return new Parent();
 	}
+	int methodInt() {
+		return 0;
+	}
+}
 
+class SuperC extends Parent{
+	
+	Parent methodA() {
+		return new SuperC();
+	}
+	@Override
+	int methodInt() {
+		return 1;
+	}
+}
+
+class SubC extends SuperC {
+	
+	Parent methodA() {
+		return new SuperC();
+	}
+	
+	int methodInt() {
+		return 2;
+	}
 }
