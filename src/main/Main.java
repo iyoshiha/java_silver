@@ -10,15 +10,37 @@ public class Main {
 }
 class Parent {
 	
+	protected int a;
+	
+	Parent() {
+		
+	}
+
+	Parent(int n) {
+		this.a = n;
+	}
+	
 	Parent methodA() {
 		return new Parent();
 	}
 	int methodInt() {
-		return 0;
+		return a = 0;
 	}
 }
 
 class SuperC extends Parent{
+	
+	SuperC() {
+		this("Great");
+	}
+	
+	SuperC(int n) {
+		
+	}
+	
+	SuperC(String str) {
+		this(10);
+	}
 	
 	Parent methodA() {
 		return new SuperC();
