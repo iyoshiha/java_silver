@@ -4,24 +4,32 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		SuperC c = new SuperC();
+		Parent p = new SuperC();
+//		p.M();
+
 //		System.out.println(c.methodInt());
 	}
 }
 class Parent {
 	
 	protected int a;
-	
-	Parent() {
-		
-	}
+//	
+//	Parent() {
+//		System.out.println("this is Parent D-constructer");
+//	}
 
 	Parent(int n) {
 		this.a = n;
+		System.out.println("this is Parent int-constructer");
+	}
+	
+	private void M() {
+		System.out.println("private MMM");
 	}
 	
 	Parent methodA() {
-		return new Parent();
+		M();
+		return new Parent(1);
 	}
 	int methodInt() {
 		return a = 0;
@@ -31,17 +39,18 @@ class Parent {
 class SuperC extends Parent{
 	
 	SuperC() {
-		this("Great");
+		this(10);
+		System.out.println("this is superc D-constructer");
 	}
 	
 	SuperC(int n) {
-		
+		super(10);
+		System.out.println("this is superc int-constructer");
 	}
 	
-	SuperC(String str) {
-		this(10);
+	void methodSuperC() {
+		System.out.println("superC");
 	}
-	
 	Parent methodA() {
 		return new SuperC();
 	}
